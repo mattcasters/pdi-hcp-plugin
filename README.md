@@ -2,7 +2,12 @@
 
 Pentaho Data Integration plugins for the Hitachi Computing Platform
 
-## Step
+## Steps
 - HCP Get
 - HCP Put
 - HCP Delete
+
+## MetaStore objects
+- HCP Connection
+
+
