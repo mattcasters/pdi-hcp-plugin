@@ -2,8 +2,6 @@ package org.pentaho.di.hcp.steps.put;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 
 import javax.ws.rs.core.MediaType;
 
@@ -141,16 +139,7 @@ public class HCPPut extends BaseStep implements StepInterface {
     BufferedInputStream fileInputStream = null;
     try {
       
-      URL url = new URL(sourceFilePath);
-      System.out.print("protocol : "+url.getProtocol());
-      System.out.print("host : "+url.getHost());
-      URI uri = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(), url.getQuery(), url.getRef());
-      url = uri.toURL();
-      
-      System.out.println("Cleaned URL : "+url.toString());
-      
-      
-      fileInputStream = new BufferedInputStream(KettleVFS.getInputStream(url.toString()), data.bufferSize);
+      fileInputStream = new BufferedInputStream(KettleVFS.getInputStream(sourceFilePath), data.bufferSize);
 
       // Execute an HTTP PUT. This tells HCP to store the data being provided
 
